@@ -1,0 +1,1766 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunan Gunung Jati | Jejak Sang Wali</title>
+
+<meta name="description" content="Website edukasi interaktif tentang biografi, sejarah, dan perjuangan Sunan Gunung Jati.">
+<meta name="author" content="Kenjiro Arkananta">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0b1717;
+  --bg2: #102321;
+  --gold: #d9b879;
+  --gold2: #f0d9a3;
+  --cream: #f3eee3;
+  --muted: #a6b5ac;
+  --line: rgba(217,184,121,.22);
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "DM Sans", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: var(--sans);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.container {
+  width: min(1120px, 90%);
+  margin: auto;
+}
+
+.gold {
+  color: var(--gold);
+}
+
+.eyebrow {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+.section {
+  padding: 110px 0;
+}
+
+.section-heading {
+  max-width: 700px;
+  margin-bottom: 55px;
+}
+
+.section-heading h2 {
+  font: 600 clamp(2.5rem, 5vw, 4.5rem)/1.05 var(--serif);
+  margin: 15px 0;
+}
+
+.section-heading p {
+  color: var(--muted);
+  max-width: 600px;
+}
+
+/* NAVIGATION */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(11,23,23,.85);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid transparent;
+  transition: .3s;
+}
+
+.navbar.scrolled {
+  border-color: var(--line);
+}
+
+.nav-inner {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font: 600 1.45rem var(--serif);
+  color: var(--gold);
+  letter-spacing: .5px;
+}
+
+.logo span {
+  display: block;
+  font: 700 .55rem var(--sans);
+  letter-spacing: 2px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 27px;
+  align-items: center;
+  font-size: .82rem;
+  color: var(--muted);
+}
+
+.nav-links a {
+  transition: .25s;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--gold);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(11,23,23,.98) 0%, rgba(11,23,23,.85) 48%, rgba(11,23,23,.45) 100%),
+    linear-gradient(0deg, var(--bg), transparent 50%),
+    url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2000&q=85")
+    center/cover;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border: 1px solid rgba(217,184,121,.12);
+  border-radius: 50%;
+  right: -100px;
+  top: 15%;
+  box-shadow: 0 0 0 60px rgba(217,184,121,.025),
+              0 0 0 120px rgba(217,184,121,.025);
+  animation: rotate 70s linear infinite;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-top: 80px;
+  max-width: 780px;
+}
+
+.hero .eyebrow {
+  animation: fadeUp .8s both;
+}
+
+.hero h1 {
+  font: 600 clamp(4rem, 10vw, 8.5rem)/.88 var(--serif);
+  margin: 28px 0;
+  letter-spacing: -3px;
+  animation: fadeUp .9s .1s both;
+}
+
+.hero h1 span {
+  display: block;
+  color: var(--gold);
+  font-style: italic;
+}
+
+.hero-desc {
+  max-width: 520px;
+  color: #c3cec6;
+  font-size: 1rem;
+  animation: fadeUp 1s .2s both;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 35px;
+  flex-wrap: wrap;
+  animation: fadeUp 1s .3s both;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 23px;
+  border-radius: 4px;
+  font-size: .85rem;
+  font-weight: 700;
+  transition: .3s;
+  border: 1px solid var(--gold);
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+.btn-primary:hover {
+  background: var(--gold2);
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  color: var(--gold);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: rgba(217,184,121,.1);
+  transform: translateY(-3px);
+}
+
+.hero-note {
+  margin-top: 65px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--muted);
+  font-size: .75rem;
+}
+
+.hero-note::before {
+  content: "";
+  width: 45px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 35px;
+  right: 5%;
+  color: var(--gold);
+  font-size: .7rem;
+  letter-spacing: 2px;
+  writing-mode: vertical-rl;
+}
+
+/* INTRO */
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.intro-visual {
+  min-height: 450px;
+  position: relative;
+  border: 1px solid var(--line);
+  padding: 15px;
+}
+
+.intro-visual img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  filter: sepia(.2) brightness(.8);
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+  padding: 18px;
+  background: rgba(11,23,23,.88);
+  border-left: 2px solid var(--gold);
+  font-size: .78rem;
+  color: var(--muted);
+}
+
+.intro-text h2 {
+  font: 600 clamp(2.5rem, 5vw, 4rem)/1 var(--serif);
+  margin: 18px 0 25px;
+}
+
+.intro-text p {
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.fact-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.fact {
+  border-top: 1px solid var(--line);
+  padding-top: 15px;
+}
+
+.fact strong {
+  display: block;
+  color: var(--gold);
+  font: 600 1.6rem var(--serif);
+}
+
+.fact span {
+  color: var(--muted);
+  font-size: .75rem;
+}
+
+/* BIOGRAPHY */
+
+.biography {
+  background: var(--bg2);
+}
+
+.bio-card {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.015);
+}
+
+.bio-side {
+  padding: 40px;
+  border-right: 1px solid var(--line);
+}
+
+.bio-side h3 {
+  font: 600 2.4rem var(--serif);
+  color: var(--gold);
+}
+
+.bio-side p {
+  color: var(--muted);
+  font-size: .85rem;
+  margin-top: 10px;
+}
+
+.bio-content {
+  padding: 40px;
+}
+
+.bio-content p {
+  color: #c2cec6;
+  margin-bottom: 18px;
+}
+
+.bio-content strong {
+  color: var(--gold2);
+}
+
+/* TIMELINE */
+
+.timeline {
+  position: relative;
+  max-width: 850px;
+  margin: auto;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 105px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 105px 1fr;
+  gap: 30px;
+  margin-bottom: 38px;
+  position: relative;
+}
+
+.timeline-year {
+  color: var(--gold);
+  font: 600 1.3rem var(--serif);
+  text-align: right;
+  padding-top: 4px;
+}
+
+.timeline-content {
+  position: relative;
+  padding: 0 0 25px;
+  border-bottom: 1px solid var(--line);
+}
+
+.timeline-content::before {
+  content: "";
+  position: absolute;
+  left: -36px;
+  top: 9px;
+  width: 11px;
+  height: 11px;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px var(--bg);
+}
+
+.timeline-content h3 {
+  font: 600 1.8rem var(--serif);
+  margin-bottom: 8px;
+}
+
+.timeline-content p {
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+/* DAKWAH */
+
+.dakwah {
+  background: var(--bg2);
+}
+
+.dakwah-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.dakwah-card {
+  padding: 30px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.02);
+  transition: .35s;
+}
+
+.dakwah-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+  background: rgba(217,184,121,.04);
+}
+
+.card-number {
+  color: var(--gold);
+  font: 600 2.5rem var(--serif);
+  opacity: .7;
+}
+
+.dakwah-card h3 {
+  font: 600 1.8rem var(--serif);
+  margin: 15px 0;
+}
+
+.dakwah-card p {
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+/* LEGACY */
+
+.legacy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.legacy-card {
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.legacy-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  filter: sepia(.15) brightness(.8);
+  transition: .5s;
+}
+
+.legacy-card:hover img {
+  filter: sepia(0) brightness(1);
+  transform: scale(1.03);
+}
+
+.legacy-info {
+  padding: 25px;
+}
+
+.legacy-info h3 {
+  font: 600 2rem var(--serif);
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.legacy-info p {
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+/* VALUES */
+
+.values {
+  background: var(--bg2);
+}
+
+.values-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.value-item {
+  text-align: center;
+  padding: 28px 18px;
+  border-top: 1px solid var(--gold);
+}
+
+.value-item h3 {
+  font: 600 1.7rem var(--serif);
+  margin: 15px 0 8px;
+}
+
+.value-item p {
+  font-size: .8rem;
+  color: var(--muted);
+}
+
+/* QUIZ */
+
+.quiz-section {
+  background:
+    radial-gradient(ellipse at top, rgba(217,184,121,.09), transparent 55%),
+    var(--bg);
+}
+
+.quiz-box {
+  max-width: 780px;
+  margin: auto;
+  padding: 45px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.02);
+}
+
+.quiz-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.quiz-progress {
+  height: 4px;
+  background: rgba(255,255,255,.08);
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.quiz-progress div {
+  height: 100%;
+  width: 0;
+  background: var(--gold);
+  transition: .4s;
+}
+
+.quiz-question {
+  font: 600 clamp(1.7rem, 4vw, 2.5rem)/1.15 var(--serif);
+  margin-bottom: 25px;
+}
+
+.quiz-options {
+  display: grid;
+  gap: 12px;
+}
+
+.quiz-option {
+  text-align: left;
+  padding: 17px 20px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--cream);
+  border-radius: 4px;
+  transition: .25s;
+}
+
+.quiz-option:hover:not(:disabled) {
+  border-color: var(--gold);
+  background: rgba(217,184,121,.07);
+  transform: translateX(4px);
+}
+
+.quiz-option.correct {
+  border-color: #71c69b;
+  background: rgba(113,198,155,.1);
+}
+
+.quiz-option.wrong {
+  border-color: #d87979;
+  background: rgba(216,121,121,.1);
+}
+
+.quiz-feedback {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: .85rem;
+  min-height: 25px;
+}
+
+.quiz-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+  gap: 15px;
+}
+
+.quiz-result {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.quiz-result .score {
+  font: 600 5rem var(--serif);
+  color: var(--gold);
+  margin: 20px 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* SOURCES */
+
+.sources {
+  background: var(--bg2);
+}
+
+.source-list {
+  display: grid;
+  gap: 12px;
+  max-width: 800px;
+}
+
+.source-list a {
+  color: var(--gold);
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+  font-size: .85rem;
+  transition: .2s;
+}
+
+.source-list a:hover {
+  color: var(--gold2);
+  padding-left: 8px;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 45px 0;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.footer-title {
+  font: 600 2.5rem var(--serif);
+  color: var(--gold);
+}
+
+footer p {
+  color: var(--muted);
+  font-size: .8rem;
+  margin-top: 8px;
+}
+
+.creator {
+  margin-top: 25px;
+  color: var(--gold2);
+  letter-spacing: 1px;
+  font-size: .8rem;
+}
+
+/* ANIMATIONS */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 76px;
+    left: 0;
+    width: 100%;
+    padding: 25px 5%;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .bio-card {
+    grid-template-columns: 1fr;
+  }
+
+  .bio-side {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .dakwah-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .values-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .section {
+    padding: 75px 0;
+  }
+
+  .hero h1 {
+    letter-spacing: -1px;
+  }
+
+  .hero-note {
+    margin-top: 40px;
+  }
+
+  .intro-visual {
+    min-height: 330px;
+  }
+
+  .intro-visual img {
+    height: 300px;
+  }
+
+  .dakwah-grid,
+  .legacy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline::before {
+    left: 72px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 72px 1fr;
+    gap: 20px;
+  }
+
+  .timeline-year {
+    font-size: 1rem;
+  }
+
+  .timeline-content::before {
+    left: -26px;
+  }
+
+  .quiz-box {
+    padding: 25px 20px;
+  }
+
+  .quiz-top {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .values-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="logo">
+      SUNAN GUNUNG JATI
+      <span>Jejak Sang Wali</span>
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#tentang">Biografi</a>
+      <a href="#perjalanan">Perjalanan</a>
+      <a href="#dakwah">Dakwah</a>
+      <a href="#peninggalan">Peninggalan</a>
+      <a href="#quiz">Quiz</a>
+    </div>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Buka menu">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">Wali Songo • Abad ke-15–16</div>
+
+      <h1>
+        Sunan
+        <span>Gunung Jati</span>
+      </h1>
+
+      <p class="hero-desc">
+        Menelusuri jejak seorang ulama, pemimpin, dan tokoh penting
+        dalam penyebaran Islam di tanah Jawa bagian barat.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#tentang" class="btn btn-primary">
+          Jelajahi Sejarah <span>↗</span>
+        </a>
+
+        <a href="#quiz" class="btn btn-outline">
+          Uji Pengetahuan
+        </a>
+      </div>
+
+      <div class="hero-note">
+        Sebuah perjalanan mengenal sejarah dan keteladanan
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">SCROLL TO EXPLORE ↓</div>
+</header>
+
+<!-- INTRODUCTION -->
+<section class="section" id="tentang">
+  <div class="container intro-grid reveal">
+
+    <div class="intro-visual">
+      <img
+        src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=85"
+        alt="Pemandangan pegunungan dan langit senja"
+        loading="lazy"
+      >
+
+      <div class="image-caption">
+        <strong class="gold">Syarif Hidayatullah</strong><br>
+        Tokoh yang dikenal sebagai Sunan Gunung Jati
+      </div>
+    </div>
+
+    <div class="intro-text">
+      <div class="eyebrow">Mengenal Sang Wali</div>
+
+      <h2>Ulama yang membangun <span class="gold">peradaban</span></h2>
+
+      <p>
+        Sunan Gunung Jati merupakan salah satu anggota Wali Songo,
+        sembilan tokoh yang dikenal berperan penting dalam penyebaran
+        Islam di Pulau Jawa.
+      </p>
+
+      <p>
+        Nama aslinya adalah <strong>Raden Syarif Hidayatullah</strong>.
+        Selain dikenal sebagai ulama dan pendakwah, beliau juga
+        merupakan pemimpin Kesultanan Cirebon.
+      </p>
+
+      <p>
+        Perjuangannya berpengaruh besar terhadap perkembangan Islam
+        di wilayah Cirebon, Banten, dan Jawa Barat.
+      </p>
+
+      <div class="fact-row">
+        <div class="fact">
+          <strong>1448 M</strong>
+          <span>Tahun lahir yang umum disebut</span>
+        </div>
+
+        <div class="fact">
+          <strong>1568 M</strong>
+          <span>Tahun wafat menurut sumber umum</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIOGRAPHY -->
+<section class="section biography">
+  <div class="container reveal">
+
+    <div class="section-heading">
+      <div class="eyebrow">01 — Biografi</div>
+      <h2>Awal kehidupan <span class="gold">Sang Wali</span></h2>
+      <p>
+        Mengenal asal-usul, keluarga, dan perjalanan hidup
+        Syarif Hidayatullah.
+      </p>
+    </div>
+
+    <div class="bio-card">
+      <div class="bio-side">
+        <div class="eyebrow">Identitas Tokoh</div>
+
+        <h3>Raden Syarif Hidayatullah</h3>
+
+        <p>
+          Dikenal dengan nama Sunan Gunung Jati,
+          salah satu Wali Songo dan Sultan Cirebon.
+        </p>
+      </div>
+
+      <div class="bio-content">
+        <p>
+          <strong>Nama:</strong> Raden Syarif Hidayatullah
+        </p>
+
+        <p>
+          <strong>Nama lain:</strong> Syekh Syarif Hidayatullah,
+          Sunan Gunung Jati, dan Susuhunan Jati.
+        </p>
+
+        <p>
+          <strong>Tempat lahir:</strong> Makkah, menurut
+          tradisi dan materi pembelajaran yang umum digunakan.
+        </p>
+
+        <p>
+          <strong>Tahun lahir:</strong> Sekitar 1448 M.
+        </p>
+
+        <p>
+          <strong>Ayah:</strong> Syarif Abdullah bin Ali Nurul Alim.
+        </p>
+
+        <p>
+          <strong>Ibu:</strong> Nyai Rara Santang, yang juga
+          dikenal sebagai Syarifah Muda'im.
+        </p>
+
+        <p>
+          <strong>Tempat wafat:</strong> Cirebon, Jawa Barat.
+        </p>
+
+        <p>
+          <strong>Tahun wafat:</strong> 1568 M menurut banyak
+          sumber pembelajaran. Beberapa sumber sejarah menyebut
+          tahun yang berbeda.
+        </p>
+
+        <p>
+          <strong>Makam:</strong> Kompleks Astana Gunung Sembung,
+          Desa Astana, Kabupaten Cirebon, Jawa Barat.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section" id="perjalanan">
+  <div class="container reveal">
+
+    <div class="section-heading">
+      <div class="eyebrow">02 — Perjalanan Hidup</div>
+      <h2>Jejak waktu <span class="gold">Sang Sunan</span></h2>
+      <p>
+        Perjalanan yang menghubungkan pendidikan, dakwah,
+        dan kepemimpinan.
+      </p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-year">1448</div>
+        <div class="timeline-content">
+          <h3>Kelahiran</h3>
+          <p>
+            Syarif Hidayatullah diperkirakan lahir di Makkah.
+            Beliau berasal dari keluarga yang memiliki hubungan
+            dengan lingkungan kerajaan Sunda dan Timur Tengah
+            menurut tradisi sejarah.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">Masa muda</div>
+        <div class="timeline-content">
+          <h3>Menuntut ilmu</h3>
+          <p>
+            Beliau mempelajari ilmu agama dan dikenal melakukan
+            perjalanan ke sejumlah wilayah untuk memperdalam
+            pengetahuan serta pengalaman dakwah.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">±1470</div>
+        <div class="timeline-content">
+          <h3>Datang ke Jawa</h3>
+          <p>
+            Syarif Hidayatullah datang ke wilayah Jawa dan
+            kemudian berperan dalam perkembangan dakwah
+            Islam di Cirebon.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">1479</div>
+        <div class="timeline-content">
+          <h3>Memimpin Cirebon</h3>
+          <p>
+            Dalam sejumlah tradisi sejarah, beliau mulai
+            memegang peran penting dalam pemerintahan
+            Cirebon dan mengembangkan pusat dakwah.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">1482</div>
+        <div class="timeline-content">
+          <h3>Kesultanan Cirebon</h3>
+          <p>
+            Tahun ini sering dikaitkan dengan penguatan
+            Cirebon sebagai kesultanan yang mandiri
+            di bawah kepemimpinannya.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">Abad ke-16</div>
+        <div class="timeline-content">
+          <h3>Dakwah di Jawa Barat</h3>
+          <p>
+            Pengaruh dakwah Islam berkembang di Cirebon,
+            Banten, dan wilayah pesisir Jawa Barat.
+            Putranya, Maulana Hasanuddin, berperan
+            dalam perkembangan Islam di Banten.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">1568</div>
+        <div class="timeline-content">
+          <h3>Wafat di Cirebon</h3>
+          <p>
+            Sunan Gunung Jati wafat dan dimakamkan
+            di kompleks Astana Gunung Sembung,
+            Cirebon, Jawa Barat.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DAKWAH -->
+<section class="section dakwah" id="dakwah">
+  <div class="container reveal">
+
+    <div class="section-heading">
+      <div class="eyebrow">03 — Perjuangan</div>
+      <h2>Strategi <span class="gold">dakwah</span></h2>
+      <p>
+        Sunan Gunung Jati dikenal mengembangkan dakwah
+        melalui pendekatan agama, sosial, dan pemerintahan.
+      </p>
+    </div>
+
+    <div class="dakwah-grid">
+
+      <article class="dakwah-card">
+        <div class="card-number">01</div>
+        <h3>Pendidikan agama</h3>
+        <p>
+          Mengajarkan nilai-nilai Islam kepada masyarakat
+          dan membangun lingkungan yang mendukung
+          pembelajaran agama.
+        </p>
+      </article>
+
+      <article class="dakwah-card">
+        <div class="card-number">02</div>
+        <h3>Hubungan sosial</h3>
+        <p>
+          Menjalin hubungan dengan masyarakat dan
+          pemimpin setempat untuk memperluas
+          pengaruh dakwah secara damai.
+        </p>
+      </article>
+
+      <article class="dakwah-card">
+        <div class="card-number">03</div>
+        <h3>Pemerintahan</h3>
+        <p>
+          Memimpin Cirebon dan memperkuat kedudukannya
+          sebagai pusat pemerintahan serta
+          penyebaran Islam.
+        </p>
+      </article>
+
+      <article class="dakwah-card">
+        <div class="card-number">04</div>
+        <h3>Perdagangan</h3>
+        <p>
+          Cirebon merupakan wilayah pesisir yang
+          memiliki hubungan perdagangan. Jalur ini
+          membantu terjadinya interaksi antar masyarakat.
+        </p>
+      </article>
+
+      <article class="dakwah-card">
+        <div class="card-number">05</div>
+        <h3>Budaya</h3>
+        <p>
+          Perkembangan Cirebon memperlihatkan pertemuan
+          berbagai unsur budaya, termasuk Jawa,
+          Sunda, Arab, dan Tionghoa.
+        </p>
+      </article>
+
+      <article class="dakwah-card">
+        <div class="card-number">06</div>
+        <h3>Generasi penerus</h3>
+        <p>
+          Putranya, Maulana Hasanuddin, dikenal sebagai
+          tokoh penting dalam perkembangan
+          Kesultanan Banten.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- LEGACY -->
+<section class="section" id="peninggalan">
+  <div class="container reveal">
+
+    <div class="section-heading">
+      <div class="eyebrow">04 — Warisan Sejarah</div>
+      <h2>Jejak yang <span class="gold">tertinggal</span></h2>
+      <p>
+        Beberapa tempat bersejarah yang berkaitan
+        dengan perjalanan Sunan Gunung Jati.
+      </p>
+    </div>
+
+    <div class="legacy-grid">
+
+      <article class="legacy-card">
+        <img
+          src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80"
+          alt="Arsitektur bangunan bersejarah"
+          loading="lazy"
+        >
+
+        <div class="legacy-info">
+          <h3>Masjid Agung Sang Cipta Rasa</h3>
+          <p>
+            Masjid bersejarah di Cirebon yang berkaitan
+            dengan perkembangan Islam dan tradisi
+            Kesultanan Cirebon.
+          </p>
+        </div>
+      </article>
+
+      <article class="legacy-card">
+        <img
+          src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=80"
+          alt="Bangunan bersejarah dengan arsitektur klasik"
+          loading="lazy"
+        >
+
+        <div class="legacy-info">
+          <h3>Kompleks Makam Gunung Sembung</h3>
+          <p>
+            Kompleks pemakaman bersejarah di Desa Astana,
+            Kabupaten Cirebon. Di tempat inilah Sunan
+            Gunung Jati dimakamkan.
+          </p>
+        </div>
+      </article>
+
+      <article class="legacy-card">
+        <img
+          src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=900&q=80"
+          alt="Bangunan tradisional"
+          loading="lazy"
+        >
+
+        <div class="legacy-info">
+          <h3>Kesultanan Cirebon</h3>
+          <p>
+            Pemerintahan yang berkembang menjadi
+            pusat penting dalam sejarah Islam
+            di wilayah Jawa Barat.
+          </p>
+        </div>
+      </article>
+
+      <article class="legacy-card">
+        <img
+          src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=80"
+          alt="Langit senja"
+          loading="lazy"
+        >
+
+        <div class="legacy-info">
+          <h3>Warisan Keteladanan</h3>
+          <p>
+            Semangat belajar, kepemimpinan,
+            kebijaksanaan, dan perjuangan
+            dalam menyebarkan nilai-nilai agama.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section values">
+  <div class="container reveal">
+
+    <div class="section-heading">
+      <div class="eyebrow">05 — Keteladanan</div>
+      <h2>Nilai yang dapat <span class="gold">dicontoh</span></h2>
+      <p>
+        Pelajaran dari perjalanan Sunan Gunung Jati
+        yang masih relevan dalam kehidupan sehari-hari.
+      </p>
+    </div>
+
+    <div class="values-list">
+
+      <div class="value-item">
+        <div class="gold">✦</div>
+        <h3>Religius</h3>
+        <p>Menjalankan ajaran agama dan menjaga akhlak.</p>
+      </div>
+
+      <div class="value-item">
+        <div class="gold">✦</div>
+        <h3>Bijaksana</h3>
+        <p>Mengambil keputusan dengan pertimbangan matang.</p>
+      </div>
+
+      <div class="value-item">
+        <div class="gold">✦</div>
+        <h3>Berilmu</h3>
+        <p>Terus belajar dan mengembangkan pengetahuan.</p>
+      </div>
+
+      <div class="value-item">
+        <div class="gold">✦</div>
+        <h3>Berpengaruh</h3>
+        <p>Memberikan manfaat bagi masyarakat.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="section quiz-section" id="quiz">
+  <div class="container reveal">
+
+    <div class="section-heading">
+      <div class="eyebrow">06 — Uji Pengetahuan</div>
+      <h2>Seberapa jauh kamu <span class="gold">mengenal</span> Sang Sunan?</h2>
+      <p>
+        Jawab 10 pertanyaan berikut untuk menguji
+        pemahamanmu tentang Sunan Gunung Jati.
+      </p>
+    </div>
+
+    <div class="quiz-box">
+
+      <div id="quizGame">
+        <div class="quiz-top">
+          <span class="eyebrow" id="questionNumber">PERTANYAAN 1 / 10</span>
+          <span class="gold" id="scoreLabel">Skor: 0</span>
+        </div>
+
+        <div class="quiz-progress">
+          <div id="progressBar"></div>
+        </div>
+
+        <h3 class="quiz-question" id="questionText"></h3>
+
+        <div class="quiz-options" id="optionsContainer"></div>
+
+        <div class="quiz-feedback" id="feedback"></div>
+
+        <div class="quiz-controls">
+          <span class="gold" id="questionCount">0 / 10</span>
+
+          <button class="btn btn-primary" id="nextBtn" disabled>
+            Selanjutnya →
+          </button>
+        </div>
+      </div>
+
+      <div class="quiz-result hidden" id="quizResult">
+        <div class="eyebrow">Quiz selesai</div>
+        <h2 class="section-heading" style="margin:20px auto">
+          Hasil perjalanan <span class="gold">ilmumu</span>
+        </h2>
+
+        <div class="score" id="finalScore">0/10</div>
+
+        <p id="resultMessage" style="color:var(--muted)"></p>
+
+        <button class="btn btn-primary" id="restartBtn" style="margin-top:25px">
+          Ulangi Quiz ↻
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section class="section sources">
+  <div class="container reveal">
+
+    <div class="section-heading">
+      <div class="eyebrow">07 — Referensi</div>
+      <h2>Sumber <span class="gold">pembelajaran</span></h2>
+      <p>
+        Referensi untuk membantu mempelajari
+        sejarah Sunan Gunung Jati lebih lanjut.
+      </p>
+    </div>
+
+    <div class="source-list">
+      <a href="https://cms2025.kemenag.go.id/storage/files/SKI%20Kelas%209.pdf"
+         target="_blank" rel="noopener">
+        Kementerian Agama — Sejarah Kebudayaan Islam Kelas IX ↗
+      </a>
+
+      <a href="https://wapresri.go.id/ziarah-makam-sunan-gunung-jati/"
+         target="_blank" rel="noopener">
+        Wakil Presiden Republik Indonesia — Ziarah Makam Sunan Gunung Jati ↗
+      </a>
+
+      <a href="https://perpustakaan.jakarta.go.id/book/detail?cn=INLIS000000000873533"
+         target="_blank" rel="noopener">
+        Perpustakaan Jakarta — Seri Tokoh Islam: Sunan Gunung Jati ↗
+      </a>
+    </div>
+
+    <p style="color:var(--muted);font-size:.8rem;margin-top:25px">
+      Catatan: Beberapa detail biografi Sunan Gunung Jati
+      memiliki perbedaan dalam tradisi dan sumber sejarah.
+      Tahun 1448 M dan 1568 M merupakan tanggal yang
+      umum digunakan dalam materi pembelajaran.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-title">Jejak Sang Wali</div>
+    <p>Digital History Project • Sejarah Islam Nusantara</p>
+
+    <div class="creator">
+      CREATOR — KENJIRO ARKANANTA
+    </div>
+
+    <p style="margin-top:20px">
+      Dibuat untuk tujuan edukasi dan pembelajaran sejarah.
+    </p>
+  </div>
+</footer>
+
+<script>
+/* NAVIGATION */
+
+const navbar = document.getElementById("navbar");
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+window.addEventListener("scroll", () => {
+  navbar.classList.toggle("scrolled", window.scrollY > 30);
+});
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+  });
+});
+
+/* SCROLL REVEAL */
+
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.12
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+  revealObserver.observe(element);
+});
+
+/* INTERACTIVE QUIZ */
+
+const questions = [
+  {
+    question: "Siapakah nama asli Sunan Gunung Jati?",
+    options: [
+      "Raden Patah",
+      "Raden Syarif Hidayatullah",
+      "Raden Rahmat",
+      "Raden Said"
+    ],
+    answer: 1,
+    explanation: "Nama asli Sunan Gunung Jati adalah Raden Syarif Hidayatullah."
+  },
+  {
+    question: "Sunan Gunung Jati merupakan salah satu anggota...",
+    options: [
+      "Panca Pandawa",
+      "Brahmana",
+      "Wali Songo",
+      "Empat Khalifah"
+    ],
+    answer: 2,
+    explanation: "Wali Songo dikenal sebagai sembilan tokoh penting dalam penyebaran Islam di Jawa."
+  },
+  {
+    question: "Di manakah Sunan Gunung Jati umumnya disebut lahir?",
+    options: [
+      "Makkah",
+      "Cirebon",
+      "Demak",
+      "Surabaya"
+    ],
+    answer: 0,
+    explanation: "Materi pembelajaran umum menyebut beliau lahir di Makkah."
+  },
+  {
+    question: "Siapakah nama ibu Sunan Gunung Jati?",
+    options: [
+      "Dewi Sekardadu",
+      "Nyai Rara Santang",
+      "Nyai Ageng Manila",
+      "Dewi Suwarsi"
+    ],
+    answer: 1,
+    explanation: "Ibunya bernama Nyai Rara Santang, yang juga dikenal sebagai Syarifah Muda'im."
+  },
+  {
+    question: "Kesultanan yang dipimpin Sunan Gunung Jati adalah...",
+    options: [
+      "Kesultanan Mataram",
+      "Kesultanan Banten",
+      "Kesultanan Demak",
+      "Kesultanan Cirebon"
+    ],
+    answer: 3,
+    explanation: "Sunan Gunung Jati dikenal sebagai pemimpin Kesultanan Cirebon."
+  },
+  {
+    question: "Wilayah utama dakwah Sunan Gunung Jati adalah...",
+    options: [
+      "Jawa Barat dan Banten",
+      "Bali dan Lombok",
+      "Sumatra Selatan",
+      "Kalimantan Timur"
+    ],
+    answer: 0,
+    explanation: "Beliau berperan besar dalam penyebaran Islam di Cirebon, Banten, dan Jawa Barat."
+  },
+  {
+    question: "Siapakah putra Sunan Gunung Jati yang berperan dalam perkembangan Islam di Banten?",
+    options: [
+      "Sunan Giri",
+      "Maulana Hasanuddin",
+      "Sunan Kudus",
+      "Raden Patah"
+    ],
+    answer: 1,
+    explanation: "Maulana Hasanuddin dikenal sebagai tokoh penting dalam perkembangan Kesultanan Banten."
+  },
+  {
+    question: "Di manakah Sunan Gunung Jati dimakamkan?",
+    options: [
+      "Makam Sunan Ampel",
+      "Makam Sunan Giri",
+      "Astana Gunung Sembung",
+      "Makam Sunan Bonang"
+    ],
+    answer: 2,
+    explanation: "Makam Sunan Gunung Jati berada di kompleks Astana Gunung Sembung, Cirebon."
+  },
+  {
+    question: "Masjid bersejarah yang berkaitan dengan perkembangan Islam di Cirebon adalah...",
+    options: [
+      "Masjid Istiqlal",
+      "Masjid Agung Sang Cipta Rasa",
+      "Masjid Menara Kudus",
+      "Masjid Agung Demak"
+    ],
+    answer: 1,
+    explanation: "Masjid Agung Sang Cipta Rasa merupakan salah satu peninggalan penting di Cirebon."
+  },
+  {
+    question: "Nilai keteladanan yang dapat dicontoh dari Sunan Gunung Jati adalah...",
+    options: [
+      "Menghindari ilmu",
+      "Mementingkan diri sendiri",
+      "Tidak peduli masyarakat",
+      "Bijaksana dan tekun berdakwah"
+    ],
+    answer: 3,
+    explanation: "Perjuangan Sunan Gunung Jati dapat menjadi teladan dalam belajar, kepemimpinan, dan memberikan manfaat bagi masyarakat."
+  }
+];
+
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+
+const questionText = document.getElementById("questionText");
+const optionsContainer = document.getElementById("optionsContainer");
+const feedback = document.getElementById("feedback");
+const nextBtn = document.getElementById("nextBtn");
+const progressBar = document.getElementById("progressBar");
+const questionNumber = document.getElementById("questionNumber");
+const questionCount = document.getElementById("questionCount");
+const scoreLabel = document.getElementById("scoreLabel");
+
+function loadQuestion() {
+  answered = false;
+
+  const q = questions[currentQuestion];
+
+  questionText.textContent = q.question;
+  questionNumber.textContent =
+    `PERTANYAAN ${currentQuestion + 1} / ${questions.length}`;
+
+  questionCount.textContent =
+    `${currentQuestion + 1} / ${questions.length}`;
+
+  progressBar.style.width =
+    `${(currentQuestion / questions.length) * 100}%`;
+
+  feedback.textContent = "";
+  nextBtn.disabled = true;
+
+  optionsContainer.innerHTML = "";
+
+  q.options.forEach((option, index) => {
+    const button = document.createElement("button");
+
+    button.className = "quiz-option";
+    button.textContent =
+      `${String.fromCharCode(65 + index)}. ${option}`;
+
+    button.addEventListener("click", () => selectAnswer(index));
+
+    optionsContainer.appendChild(button);
+  });
+
+  nextBtn.textContent =
+    currentQuestion === questions.length - 1
+      ? "Lihat Hasil →"
+      : "Selanjutnya →";
+}
+
+function selectAnswer(selectedIndex) {
+  if (answered) return;
+
+  answered = true;
+
+  const q = questions[currentQuestion];
+  const buttons = optionsContainer.querySelectorAll("button");
+
+  buttons.forEach((button, index) => {
+    button.disabled = true;
+
+    if (index === q.answer) {
+      button.classList.add("correct");
+    }
+
+    if (index === selectedIndex && index !== q.answer) {
+      button.classList.add("wrong");
+    }
+  });
+
+  if (selectedIndex === q.answer) {
+    score++;
+    feedback.textContent = "✓ Benar! " + q.explanation;
+  } else {
+    feedback.textContent = "Belum tepat. " + q.explanation;
+  }
+
+  scoreLabel.textContent = "Skor: " + score;
+  nextBtn.disabled = false;
+}
+
+nextBtn.addEventListener("click", () => {
+  if (!answered) return;
+
+  currentQuestion++;
+
+  if (currentQuestion < questions.length) {
+    loadQuestion();
+  } else {
+    showResult();
+  }
+});
+
+function showResult() {
+  document.getElementById("quizGame").classList.add("hidden");
+  document.getElementById("quizResult").classList.remove("hidden");
+
+  document.getElementById("finalScore").textContent =
+    `${score}/${questions.length}`;
+
+  progressBar.style.width = "100%";
+
+  let message = "";
+
+  if (score === 10) {
+    message = "Luar biasa! Kamu menguasai materi Sunan Gunung Jati.";
+  } else if (score >= 8) {
+    message = "Hebat! Pemahaman sejarahmu sudah sangat baik.";
+  } else if (score >= 6) {
+    message = "Bagus! Terus pelajari sejarah untuk meningkatkan hasilmu.";
+  } else {
+    message = "Tetap semangat! Coba baca kembali materi dan ulangi quiz.";
+  }
+
+  document.getElementById("resultMessage").textContent = message;
+}
+
+document.getElementById("restartBtn").addEventListener("click", () => {
+  currentQuestion = 0;
+  score = 0;
+
+  scoreLabel.textContent = "Skor: 0";
+
+  document.getElementById("quizResult").classList.add("hidden");
+  document.getElementById("quizGame").classList.remove("hidden");
+
+  loadQuestion();
+});
+
+loadQuestion();
+</script>
+
+</body>
+</html>
